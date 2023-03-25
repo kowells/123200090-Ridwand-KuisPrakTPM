@@ -10,6 +10,7 @@ class HalamanUtama extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Plant Diseases'),
+        centerTitle: true,
       ),
       body: GridView.builder(
           gridDelegate:
@@ -30,7 +31,7 @@ class HalamanUtama extends StatelessWidget {
                         width: MediaQuery.of(context).size.width / 3,
                         height: MediaQuery.of(context).size.height / 3,
                         child: Image.network(disease.imgUrls)),
-                    Text(disease.name),
+                    textSedang(disease.name),
                   ],
                 ),
               ),
@@ -38,4 +39,11 @@ class HalamanUtama extends StatelessWidget {
           }),
     );
   }
+}
+
+Widget textSedang(String text) {
+  return Text(
+    text,
+    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+  );
 }

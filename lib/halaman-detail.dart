@@ -15,7 +15,8 @@ class _HalamanDetailState extends State<HalamanDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.disease.name),
+        title: Text('Detail Diseases'),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
@@ -44,17 +45,45 @@ class _HalamanDetailState extends State<HalamanDetail> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(widget.disease.name),
-              Text('Disease Name\n' + widget.disease.name),
-              Text('Plant Name\n' + widget.disease.plantName),
-              Text('Ciri - ciri'),
-              for (var ciri in widget.disease!.nutshell) Text(ciri + "."),
-              Text('Disease ID\n' + widget.disease.id),
-              Text('Sympton\n' + widget.disease.symptom),
+              textBesar(widget.disease.name),
+              textSedang('Disease Name'),
+              textKecil(widget.disease.name),
+              textSedang('Plant Name'),
+              textKecil(widget.disease.plantName),
+              textSedang('Ciri - ciri'),
+              for (var ciri in widget.disease!.nutshell) textKecil(ciri + " "),
+              textSedang('Disease ID'),
+              textKecil(widget.disease.id),
+              textSedang('Sympton'),
+              textKecil(widget.disease.symptom),
             ],
           )
         ],
       ),
     );
   }
+}
+
+Widget textBesar(String text) {
+  return Text(
+    text,
+    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    textAlign: TextAlign.center,
+  );
+}
+
+Widget textSedang(String text) {
+  return Text(
+    text,
+    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    textAlign: TextAlign.center,
+  );
+}
+
+Widget textKecil(String text) {
+  return Text(
+    text,
+    style: TextStyle(fontSize: 16),
+    textAlign: TextAlign.center,
+  );
 }
